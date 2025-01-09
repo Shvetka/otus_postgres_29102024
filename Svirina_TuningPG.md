@@ -1,4 +1,4 @@
-#Тюнинг Постгреса
+# Тюнинг Постгреса
 
 ## Создаем бд
 
@@ -8,7 +8,7 @@ CREATE DATABASE benchmark;
 
 pgbench -h 127.0.0.1 -p 5432 -U postgres -i -s 150 benchmark
 
-##ПРоводим тест
+## Проводим тест
 
 pgbench -h 127.0.0.1 -p 5432 -U postgres -c 50 -j 2 -P 60 -T 600 benchmark
 
@@ -26,7 +26,7 @@ tps = 222.062292 (without initial connection time)
 
 Обработано 133209 транзакций с пропускной способностью 222 транзакций в секунду
 
-##Настроила параметры ссайта https://www.pgconfig.org для OLTP систем
+## Настроила параметры ссайта https://www.pgconfig.org для OLTP систем
 
 sudo nano /var/lib/postgresql/14/main/postgresql.conf
 
@@ -44,7 +44,7 @@ max_parallel_workers=2
 min_wal_size =2GB
 max_wal_size=3GB
 
-##Проводим тест
+## Проводим тест
 pgbench -h 127.0.0.1 -p 5432 -U postgres -c 50 -j 2 -P 60 -T 600 benchmark
 
 transaction type: <builtin: TPC-B (sort of)>
@@ -62,4 +62,4 @@ postgres@compute-vm-2-2-20-ssd-1736420818884:~$
 
 Обработано 219347 транзакций с пропускной способностью 365 транзакций в секунду
 
-#Производительность выросла
+# Производительность выросла
